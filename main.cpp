@@ -20,7 +20,7 @@ string replaceChars(string, char, char);
 
 // Array of vowel English characters
 const char chars[] = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
-const int charsLength = 12;
+const int charsLength = 10;
 
 // Main function
 int main() {
