@@ -40,7 +40,7 @@ int main() {
   int size = splitIntoArray(strArr, str, ' ');
   // Break every word into syllables 
   for (int i = 0; i < size; i++) {
-    if (!(i % 2)) {
+    if (i % 2) {
       cout << strArr[i] << endl;
     } else {
       cout << breakWordIntoSyllables(strArr[i]) << endl;
