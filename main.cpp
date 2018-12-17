@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////
 30. Розбити слово на дві частини згідно з правилами перенесення 
-слів у введеному з клавіатури рядку. Визначити слова перенесення
-яких неможливе.
+слів кожне слово на парній позиції у введеному з клавіатури рядку. 
+Визначити слова перенесення яких неможливе.
 ////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <string>
@@ -24,25 +24,29 @@ const int charsLength = 12;
 
 // Main function
 int main() {
-	// Input initial string
-	string str;
-	cout << "Input your string: ";
-	getline(cin, str);
-	// Parse initial string (delete useless spaces, replace dots with spaces etc.)
-	str = parseStringForBreaking(str);
-	// Print initial string
-	cout << str << endl;
-	cout << "==================" << endl;
-
-	// Create new array of strings for separate words
-	string* strArr = new string[str.length()];
-	// Find a number of words
-	int size = splitIntoArray(strArr, str, ' ');
-	// Break every word into syllables 
-	for (int i = 0; i < size; i++) {
-		cout << breakWordIntoSyllables(strArr[i]) << endl;
-	}
-	return 0;
+  // Input initial string
+  string str;
+  cout << "Input your string: ";
+  getline(cin, str);
+  // Parse initial string (delete useless spaces, replace dots with spaces etc.)
+  str = parseStringForBreaking(str);
+  // Print initial string
+  cout << str << endl;
+  cout << "==================" << endl;
+  
+  // Create new array of strings for separate words
+  string* strArr = new string[str.length()];
+  // Find a number of words
+  int size = splitIntoArray(strArr, str, ' ');
+  // Break every word into syllables 
+  for (int i = 0; i < size; i++) {
+    if (!(i % 2)) {
+      cout << strArr[i] << endl;
+    } else {
+      cout << breakWordIntoSyllables(strArr[i]) << endl;
+    } 
+  }
+  return 0;
 }
 
 // Function that checks if the passed char is a vowel letter
